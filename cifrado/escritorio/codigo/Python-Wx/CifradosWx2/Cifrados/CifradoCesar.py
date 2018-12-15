@@ -12,7 +12,6 @@ class CifradoCesar:
         self.valor = value
         self.cifradoAnterior = self.cif
         self.cif = self.palabra(txtnew,value)
-
     def palabra(self,orig, cont):
         e = self.alfabeto
         return "".join(list(map(lambda x: self.sustituir(x, e, cont), list(orig))))
@@ -25,4 +24,4 @@ class CifradoCesar:
         return lista[indice + avanze]
 
     def Crearalfabeto(self):
-        return list(map(chr, range(32, 126)))
+        return list(map(chr, range(32, 254)))

@@ -5,11 +5,12 @@ from Interfaz.Cifrados.ReverseGroup import PanelCifReverseGrup
 import wx
 
 class PanelCifrados(wx.Panel):
-    def __init__(self, parent):
+    def __init__(self, parent,Gest):
         wx.Panel.__init__(self, parent)
-        self.panel_cesar = PanelCifCesar(self)
+        self.Gest = Gest
+        self.panel_cesar = PanelCifCesar(self,self.Gest)
         self.panel_rever = PanelCifReverse(self)
-        self.panel_reverG = PanelCifReverseGrup(self)
+        self.panel_reverG = PanelCifReverseGrup(self,self.Gest)
 
         self.__do_layout()
         self.__set_properties()

@@ -11,8 +11,10 @@ class Gestor:
         self.cifC = CifradoCesar("", 3)
         self.cifRevG = ReverseGroup("", 3)
         self.cifRev = Reverse("")
+        self.palabra_aux = ""
 
     def datoExternoTXT(self, nuevo ,val ,val2):
+        self.palabra_aux = nuevo
         resp = TextoPlano(nuevo)
         self.text.diference(nuevo)
 

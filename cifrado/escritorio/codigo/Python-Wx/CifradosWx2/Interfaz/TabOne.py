@@ -7,7 +7,7 @@ class TabOne(wx.Panel):
     def __init__(self, parent,Gest):
         wx.Panel.__init__(self, parent)
         self.Gest = Gest
-        self.panel_2 = PanelCifrados(self)
+        self.panel_2 = PanelCifrados(self,Gest)
         self.panel_1 = PanelTexto(self,self.panel_2 ,self.Gest)
 
         self.__do_layout()

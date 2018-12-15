@@ -2,13 +2,14 @@
 import wx
 
 class PanelCifReverseGrup(wx.Panel):
-    def __init__(self, parent):
+    def __init__(self, parent,Gest):
         wx.Panel.__init__(self, parent ,style=wx.SUNKEN_BORDER)
         elem = [str(i) for i in range(1,100)]
         self.label_texto = wx.StaticText(self, -1,style = wx.ALIGN_CENTER)
         self.label_advice = wx.StaticText(self, -1,style = wx.ALIGN_LEFT)
         self.txt_plano = wx.TextCtrl(self,size = (1,50),style = wx.TE_MULTILINE)
         self.combo = wx.ComboBox(self, -1, "3", (15, 30),wx.DefaultSize, elem, wx.CB_DROPDOWN)
+        self.Gest = Gest
 
         self.__do_layout()
         self.__event__()
@@ -30,7 +31,8 @@ class PanelCifReverseGrup(wx.Panel):
         self.combo.Bind(wx.EVT_COMBOBOX, self.OnCombo)
 
     def OnCombo(self, event):
-        pass
+        self.Gest.cifRevG.cifrar(self.Gest.palabra_aux, int(self.combo.GetValue()))
+        self.txt_plano.SetValue(self.Gest.cifRevG.res)
 
     def getValue(self):
         return self.combo.GetValue()
