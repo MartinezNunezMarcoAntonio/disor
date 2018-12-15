@@ -1,6 +1,6 @@
 # Juego de la vida
 
-## Contemplaciones de escalabilidad - FALCON EYE y NET HACK
+## Contemplaciones de escalabilidad 
 1. Celdas en tiempo de ejecucion
 2. forma de la malla
 3. Relacion entre mallas
