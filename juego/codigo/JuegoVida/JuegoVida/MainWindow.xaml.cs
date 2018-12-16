@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace JuegoVida
 {
@@ -38,15 +39,39 @@ namespace JuegoVida
 
             Button siguiente = new Button();
             siguiente.Background = new SolidColorBrush(Colors.Azure);
-            siguiente.Content = "Avanzar";
+            siguiente.Content = "Next";
             siguiente.Click += new RoutedEventHandler(clickeado);
             this.grid.Children.Add(siguiente);
+
+
         }
 
         private void clickeado(object sender, RoutedEventArgs e)
         {
-            //Realizar la regla de vida o muerte
-            //Actualizar Datos
+            var seed = Environment.TickCount;
+            var random = new Random(seed);
+            SolidColorBrush blanco = new SolidColorBrush(Colors.White);
+            SolidColorBrush negro = new SolidColorBrush(Colors.Black);
+
+            for (int i = 0; i <= 100; i++)
+            {
+                var value = random.Next(0, 702);
+                if( malla[value].Background == negro )
+                {
+                    malla[value].Background = blanco;
+                }
+                else
+                {
+                    malla[value].Background = negro;
+                }
+                
+            }
+            for (int i = 0; i <= 250; i++)
+            {
+                var value = random.Next(0, 702);
+                malla[value].Background = blanco;
+
+            }
         }
     }
 }
